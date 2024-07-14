@@ -5,16 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error page 3</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        :root{
+        :root {
             --btn-color: #C1F824;
             --default-transition: all 0.3s linear;
             --fourth-color: #2D2D2D;
         }
-        a{
+
+        a {
             text-decoration: none;
         }
+
         .error_page_banner {
             min-height: 100vh;
             display: grid;
@@ -52,7 +56,8 @@
             transform: translate(-50%, -50%);
             opacity: 0.3;
         }
-        .submit-btn{
+
+        .submit-btn {
             background-color: var(--btn-color);
             border: none;
             border-radius: 5px;
@@ -66,25 +71,27 @@
             z-index: 1;
             overflow: hidden;
         }
-        .submit-btn span{
+
+        .submit-btn span {
             color: var(--fourth-color);
             text-transform: uppercase;
             font-weight: 500;
         }
 
-        .cursor-btn{
+        .cursor-btn {
             --size: 50px;
             height: var(--size);
             width: var(--size);
             border-radius: 50%;
             position: absolute;
             pointer-events: none;
-            display: none   ;
+            display: none;
             background-color: rgba(0, 0, 0, 0.2);
             z-index: 9;
-            box-shadow: 0px 0px 23px 3px rgba(0,0,0,0.4);
+            box-shadow: 0px 0px 23px 3px rgba(0, 0, 0, 0.4);
 
         }
+
         /* .error_page_banner .content:after{
     content: '';
     position: absolute;
@@ -118,7 +125,8 @@
                 top: -60px;
                 right: -70px;
             }
-            .submit-btn{
+
+            .submit-btn {
                 padding: 13px 25px;
                 gap: 15px;
             }
@@ -158,32 +166,32 @@
 
 
     <script>
-document.addEventListener("DOMContentLoaded", function() {
-    var consultationBtns = document.querySelectorAll(".hover_btn");
-    var cursors = document.querySelectorAll(".cursor-btn");
+        document.addEventListener("DOMContentLoaded", function () {
+            var consultationBtns = document.querySelectorAll(".hover_btn");
+            var cursors = document.querySelectorAll(".cursor-btn");
 
-    consultationBtns.forEach(function(consultationBtn, index) {
-        consultationBtn.addEventListener("mousemove", function(event) {
-            var buttonRect = consultationBtn.getBoundingClientRect();
-            var cursorSize = parseInt(getComputedStyle(cursors[index]).getPropertyValue('--size'));
-            var cursorHalfSize = cursorSize / 2;
-            var x = event.clientX - buttonRect.left - cursorHalfSize;
-            var y = event.clientY - buttonRect.top - cursorHalfSize;
+            consultationBtns.forEach(function (consultationBtn, index) {
+                consultationBtn.addEventListener("mousemove", function (event) {
+                    var buttonRect = consultationBtn.getBoundingClientRect();
+                    var cursorSize = parseInt(getComputedStyle(cursors[index]).getPropertyValue('--size'));
+                    var cursorHalfSize = cursorSize / 2;
+                    var x = event.clientX - buttonRect.left - cursorHalfSize;
+                    var y = event.clientY - buttonRect.top - cursorHalfSize;
 
-            cursors[index].style.left = x + "px";
-            cursors[index].style.top = y + "px";
-            // console.log(cursors);
+                    cursors[index].style.left = x + "px";
+                    cursors[index].style.top = y + "px";
+                    // console.log(cursors);
+                });
+
+                consultationBtn.addEventListener("mouseover", function () {
+                    cursors[index].style.display = "block";
+                });
+
+                consultationBtn.addEventListener("mouseout", function () {
+                    cursors[index].style.display = "none";
+                });
+            });
         });
-
-        consultationBtn.addEventListener("mouseover", function() {
-            cursors[index].style.display = "block";
-        });
-
-        consultationBtn.addEventListener("mouseout", function() {
-            cursors[index].style.display = "none";
-        });
-    });
-});
 
     </script>
 </body>
