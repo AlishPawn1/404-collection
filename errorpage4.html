@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+                :root{
+            --btn-color: #C1F824;
+            --default-transition: all 0.3s linear;
+            --fourth-color: #2D2D2D;
+        }
+        a{
+            text-decoration: none;
+        }
+        .error-link .submit-btn {
+            width: fit-content;
+        }
+        .submit-btn{
+            background-color: var(--btn-color);
+            border: none;
+            border-radius: 5px;
+            padding: 13px 31px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            transition: var(--default-transition);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .submit-btn span{
+            color: var(--fourth-color);
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .cursor-btn{
+            --size: 50px;
+            height: var(--size);
+            width: var(--size);
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            display: none   ;
+            background-color: rgba(0, 0, 0, 0.2);
+            z-index: 9;
+            box-shadow: 0px 0px 23px 3px rgba(0,0,0,0.4);
+
+        }
+        .error_second{
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+}
+.error_second .content{
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+.error_second .content:before{
+    content: '';
+    --size: 400px;
+    height: var(--size);
+    width: var(--size);
+    border-radius: 50%;
+    background: linear-gradient(90deg, #3F00BA -9.04%, rgba(255, 255, 255, 0) 90%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+}
+.error_second .content .heading{
+    font-size: 60px;
+    line-height: 70px;
+}
+.error_second .content span{
+    text-transform: uppercase;
+    font-size: 30px;
+}
+.error_second .inner-content{
+    text-align: center;
+}
+.error_second .error-link .submit-btn{
+    margin: auto;
+}
+    </style>
+</head>
+<body>
+    <section class="error_second">
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                    <div class="content">
+                        <h1 class="heading">404</h1>
+                        <span>error page</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="inner-content">
+                        <h2 class="sub-heading">Page Not Found</h2>
+                        <p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
+                        <div class="error-link">
+                            <a href="#" class="submit-btn hover_btn">
+                                <span>Go To Home Page</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M0.928932 8.07107H15.0711H0.928932ZM15.0711 8.07107L8.70711 1.70711L15.0711 8.07107ZM15.0711 8.07107L8.70711 14.435L15.0711 8.07107Z"
+                                        fill="#2D2D2D" />
+                                    <path
+                                        d="M0.928932 8.07107H15.0711M15.0711 8.07107L8.70711 1.70711M15.0711 8.07107L8.70711 14.435"
+                                        stroke="#2D2D2D" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <div class="cursor-btn"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var consultationBtns = document.querySelectorAll(".hover_btn");
+            var cursors = document.querySelectorAll(".cursor-btn");
+        
+            consultationBtns.forEach(function(consultationBtn, index) {
+                consultationBtn.addEventListener("mousemove", function(event) {
+                    var buttonRect = consultationBtn.getBoundingClientRect();
+                    var cursorSize = parseInt(getComputedStyle(cursors[index]).getPropertyValue('--size'));
+                    var cursorHalfSize = cursorSize / 2;
+                    var x = event.clientX - buttonRect.left - cursorHalfSize;
+                    var y = event.clientY - buttonRect.top - cursorHalfSize;
+        
+                    cursors[index].style.left = x + "px";
+                    cursors[index].style.top = y + "px";
+                    // console.log(cursors);
+                });
+        
+                consultationBtn.addEventListener("mouseover", function() {
+                    cursors[index].style.display = "block";
+                });
+        
+                consultationBtn.addEventListener("mouseout", function() {
+                    cursors[index].style.display = "none";
+                });
+            });
+        });
+        
+            </script>
+</body>
+</html>
