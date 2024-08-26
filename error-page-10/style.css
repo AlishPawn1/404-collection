@@ -159,3 +159,12 @@ a, p, span, li{
 }
 
 /* error-page-section */
+
+@media screen and (max-width: 575px) {
+    :root{
+        --section-gaps: 40px;
+    }
+    .container{
+        padding: 0 15px;
+    }
+}
