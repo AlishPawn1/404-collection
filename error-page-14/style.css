@@ -1,0 +1,60 @@
+:root{
+    --e-global-color-accent: #FF0000;
+    --e-global-typography-6427758-font-size: 48px;
+    --e-global-typography-6427758-line-height: 1.3;
+    --e-global-typography-text-font-size: 20px;
+    --e-global-typography-text-line-height: 1.4;
+}
+
+.error-section{
+    background-color: #ececec;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    padding: 100px 0;
+}
+.error-section .error-content{
+    max-width: 800px;
+    text-align: center;
+}
+.error-section .error-content .image svg{
+    width: 650px;
+}
+.error-section .error-content .content{
+    margin: 40px 0 0;
+}
+.error-section .error-content .title{
+    font-size: var(--e-global-typography-6427758-font-size);
+    line-height: var(--e-global-typography-6427758-line-height);
+    margin: 0 0 30px;
+}
+.error-section .error-content p{
+    max-width: 60%;
+    margin: 0 auto;
+    font-size: var(--e-global-typography-text-font-size);
+    line-height: var(--e-global-typography-text-line-height);
+}
+.error-section .error-content p a{
+    color: var(--e-global-color-accent);
+    text-decoration: unset;
+}
+.error-section .error-content p a:hover{
+    text-decoration: underline;
+}
+@media screen and (max-width: 991px) {
+    .error-section .error-content .image svg {
+        width: 500px;
+    }
+    .error-section .error-content p{
+        max-width: 70%;
+    }
+}
+@media screen and (max-width: 767px) {
+    .error-section .error-content p{
+        max-width: 100%;
+    }
+    .error-section .error-content .image svg {
+        width: 100%;
+        height: auto;
+    }
+}
